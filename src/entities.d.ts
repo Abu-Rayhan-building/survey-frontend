@@ -26,6 +26,12 @@ interface Survey {
     questions: Question[];
 }
 
+interface SurveyResponse {
+    survey: Survey;
+    replies: Reply[];
+    submitTime: Date;
+}
+
 type Question = RangedOptionQuestion|MultiChoiceQuestion|TextQuestion;
 
 private interface BaseQuestion {
