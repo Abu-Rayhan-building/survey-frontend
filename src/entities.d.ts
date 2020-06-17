@@ -1,19 +1,41 @@
 interface User {
     name: string;
     roles: Role[];
+    email: string;
+    submitTime: Date;
+    studentId: number;
+    nationalId: number;
 }
 
 interface Role {
     name: string;
 }
 
-interface Course{
-    Semester;
-    instructors: User[];
-    students: User[];
-    teachingAssistance: User[];
+interface University{
+    name: string;
+    departments: Department[];
 }
 
+interface Department{
+    name: string;
+}
+
+interface Course{
+    Semester;
+    users: UserCourseRelation[];
+    department: Department;
+}
+
+interface UserCourseRelation {
+    roleInCourse: RoleInCourse;
+    user: User;
+    course: Course;
+}
+
+interface RoleInCourse{
+    course: Course;
+    name: string;
+}
 interface Semester {
     name: String;
 }
@@ -24,6 +46,7 @@ interface Survey {
     begging: Date;
     endTime: Date;
     questions: Question[];
+    targetCourseRoles: RoleInCourse[];
 }
 
 interface SurveyResponse {
